@@ -66,10 +66,10 @@ Input-Output Samples (Command Line and GUI Versions)
 
 ### Points of Interest
 1.To go around the problem of inefficiency :
-*	We took a dictionary sorted by the usage-frequency of a word.
-* We created a different dictionary using first 15000 words from this dictionary. We          appended all possible 2 letter words to this dictionary. These are very high probable words which tend to save us from arriving at a deadlock due to a shorter dictionary.(2 letter words can be played almost anywhere.) 
-* Now we use this dictionary for enumeration of all possible moves and the original dictionary only for validating the board.
-   d)This brought the runtime down to 15-20 seconds. 
+   *	We took a dictionary sorted by the usage-frequency of a word.
+   * We created a different dictionary using first 15000 words from this dictionary. We          appended all possible 2 letter words to this dictionary. These are very high probable words which tend to save us from arriving at a deadlock due to a shorter dictionary.(2 letter words can be played almost anywhere.) 
+   * Now we use this dictionary for enumeration of all possible moves and the original dictionary only for validating the board.
+   * This brought the runtime down to 15-20 seconds. 
 2. Pass by reference in Racket - We maintain a bag of tiles for undrawn tiles. To update it every time a function is called, box structures are used. (which are references rather than values).
 3. Heuristics: An intelligent AI player must efficiently apply different strategies and heuristics at each turn depending upon the current board state. Due to a short dictionary, we can now conveniently search for the best word among the reduced sample space. Also use of 2 letter words is quite strategic as they generate very few hotspots for the next move.
 4. Use of States: State of the program is given by player-tray, computer-tray and Board comprising of locked and unlocked tiles.
